@@ -6,6 +6,7 @@ import Header from './components/Header';
 import AddContact from './components/AddContact';
 import ContactList from './components/ContactList';
 import { useEffect } from 'react';
+import ContactDetails from './components/ContactDetails';
 
 
 function App() {
@@ -38,9 +39,27 @@ function App() {
 
   return (
     <div className="ui container">
-      <Header />
-      <AddContact addContactHandler={addContactHandler}/>
-      <ContactList contacts={contacts} getContactId={removeContactHandler} />
+    <Header />
+      <Router>     
+          <Routes>
+            <Route 
+              exact 
+              path='/' 
+              element={<ContactList contacts={contacts} 
+              getContactId={removeContactHandler} />} 
+            />
+            <Route 
+              path='/add' 
+              element={<AddContact 
+              addContactHandler={addContactHandler}/>} 
+            />
+            <Route 
+              exact 
+              path='/contact/:id' 
+              element={<ContactDetails contacts={contacts} />} 
+            />
+          </Routes>
+      </Router>
     </div>
   );
 }

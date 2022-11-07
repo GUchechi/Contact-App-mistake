@@ -1,0 +1,14 @@
+{
+    "contacts": [
+        {
+            "id" : "9e1dc7e2-ccc5-4bf3-87e0-c625745f0e3f",
+            "name" :"Godswill",
+            "email" : "godswilluchendu7@gmail.com"
+        },
+        {
+            "id": "70fc65fe-bc06-4b33-97a5-bb17ba58a6a9",
+            "name" : "Beauty",
+            "email": "beauty@gmail.com"
+        }
+    ]
+}

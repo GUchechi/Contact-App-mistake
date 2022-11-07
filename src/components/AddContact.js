@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate} from 'react-router-dom'
 
 const AddContact = ({addContactHandler}) => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const navigate = useNavigate();
 
   const add = (e) => {
     e.preventDefault()
@@ -13,6 +15,7 @@ const AddContact = ({addContactHandler}) => {
     addContactHandler({name, email})
     setName('')
     setEmail("")
+    navigate('/')
   }
   return (
     <div className='ui main'>
