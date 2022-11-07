@@ -1,10 +1,14 @@
 import React from 'react'
 import user from '../images/user.png'
 
-const ContactList = ({contacts}) => {
-    const renderContact = contacts.map((contact, index) => {
+const ContactList = ({contacts, getContactId}) => {
+    const deleteContacts = () => {
+        getContactId()
+    }
+
+    const renderContact = contacts.map((contact,id) => {
         return (
-            <div className="item" key={index}>
+            <div className="item" key={contact.id}>
                 <img src={user} alt="user" className="ui avatar image" />
                 <div className="content" >
                     <div className="header">{contact.name}</div>
@@ -13,6 +17,7 @@ const ContactList = ({contacts}) => {
                 <i 
                     className="trash alternate outline icon"
                     style={{color: 'red', marginTop:'7px'}}
+                    onClick={() => deleteContacts(id)}
                     ></i>
             </div>
         )
