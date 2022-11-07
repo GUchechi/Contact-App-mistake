@@ -3,8 +3,8 @@ import user from '../images/user.png'
 import { Link } from 'react-router-dom'
 
 const ContactList = ({contacts, getContactId}) => {
-    const deleteContacts = () => {
-        getContactId()
+    const deleteContacts = (id) => {
+        getContactId(id)
     }
 
     // const contacts = [
@@ -22,7 +22,7 @@ const ContactList = ({contacts, getContactId}) => {
 
     const renderContact = contacts.map((contact,id) => {
         return (
-            <div className="item" key={contact.id}>
+            <div className="item" key={id}>
                 <img src={user} alt="user" className="ui avatar image" />
                 <div className="content" >
                    <Link to={`/contact/${contact.id}`}>
@@ -31,9 +31,9 @@ const ContactList = ({contacts, getContactId}) => {
                    </Link>
                 </div>
                 <i 
+                    onClick={() => deleteContacts(contact.id)}
                     className="trash alternate outline icon"
-                    style={{color: 'red', marginTop:'7px'}}
-                    onClick={() => deleteContacts(id)}
+                    style={{color: 'red', marginTop:'7px', marginLeft: "10px" }}
                     ></i>
             </div>
         )
